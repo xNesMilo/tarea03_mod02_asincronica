@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cachipun</title>
+</head>
+
+<body>
+    <h3>Juguemos cachipun</h3>
+    <script>
+         //Repitiendo el juego
+        let juegadenuevo = parseInt(prompt('Quieres jugar?\nSi: Presiona 1 \nNo: Presiona 2'))
+            while (juegadenuevo < 2) {
+            //Ingresando las veces que quiere participar el Player
+        const veces = parseInt(prompt('Ingresa cuantas veces quieres jugar!!'));
+        let i = 1;
+        let puntaje_player = 0;
+        let puntaje_cpu = 0;
+        while (i <= veces) {
+            const jugador = prompt('Que opcion elegiras?\n 1: Piedra\n 2: Papel\n 3: Tijeras')
+            const azar = Math.random() * 3
+            let computador;
+            if (azar < 1) {
+                computador = '1'
+            } else if (azar < 2) {
+                computador = '2'
+            } else {
+                computador = '3'
+            }
+            //Inicio del juego
+            if (jugador == '1') {
+                        //Parte de la piedra
+                if (computador == '1') {
+                    alert('Ambos empatan usando Piedra')
+                }
+                else if (computador == '2') {
+                    alert('Tu Piedra pierde contra su Papel')
+                    puntaje_cpu++
+                }
+                else {
+                    alert('Le ganaste con tu Piedra a su Tijera')
+                    puntaje_player++
+                }
+                        // Fin de la parte de la Piedra
+            }
+            else if (jugador == '2') {
+                        //Parte del Papel
+                if (computador == '1') {
+                    alert('Le ganaste con tu Papel a su Piedra')
+                    puntaje_player++;
+                }
+                else if (computador == '2') {
+                    alert('Ambos empatan usando Papel')
+                }
+                else {
+                    alert('Tu Papel pierde contra su Tijera')
+                    puntaje_cpu++;
+                } 
+            }       //Fin del Papel
+            else {
+                    // Parte de las tijeras
+                if (computador == '1') {
+                    alert('Tu Tijera pierde contra su Piedra')
+                    puntaje_cpu++;
+                }
+                else if (computador == '2') {
+                    alert('Le ganaste con tu Tijera a su Papel :)')
+                    puntaje_player++;
+                }
+                else {
+                    alert('Ambos empatan usando Tijera')
+                }
+            }      //Fin parte de las tijeras
+                
+            i++;
+        }
+                    //Resultados
+        alert('La puntuacion final es :\n Jugador: ' + puntaje_player + '\n CPU: ' + puntaje_cpu)
+        //Pregunta si vuelve a jugar
+        let juegadenuevo = parseInt(prompt('Quieres jugar nuevamente?\nSi: Presiona 1 \nNo: Presiona 2'));     
+            //Se cierra si presiona 2, con 1 vuelve a jugar      
+            if (juegadenuevo == 2) {
+                break;
+        }
+    }
+    </script>
+</body>
+</html>
